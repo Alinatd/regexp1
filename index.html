@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <style>
+        .tr{
+            color: green;
+            font-size: 20px;
+        }
+        .fal{
+            color:red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="validation">Почтанды жаз</p>
+    <div>
+    
+    <audio id="true" src="./error.mp3"></audio>
+    <audio id="false" src="./correcr.mp3"></audio>
+    <input type="text" id="email" oninput="validateEmail(event)">
+</div>
+    <script>
+
+function validateEmail(event){
+    let value = event.target.value
+    // console.log(event.target.value)
+
+    let p = document.getElementById('validation')
+    let audio1 = document.getElementById('true')
+    let audio2 = document.getElementById('false')
+    const re =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+re.test(value)
+if(re.test(value)){
+    p.innerHTML = '<span class="tr">Сен почтанды туура жаздын<span> <audio></audio>'
+    audio2.play()
+}else{
+    p.innerHTML = '<span class="fal">Почтанды жакшылап жаз<span>'
+    audio1.play()  
+}
+}
+
+// validateEmail('alina@gmail.co')
+
+
+
+
+        // регулярыне выраженияны ачуунун 2 жолу бар:
+        // let reqexp = new RegExp("шаблон","шаблон") эски метод
+        // let reqexp = /шаблон/ жаншы метод\
+
+        // let str = "Любо,братцы,любо,любо,Любо!"
+        // let res = str.match(/любо/ig)
+        // console.log(res)
+
+        // let str = 'Мен JS тилин жакшы кором'
+        // let regexp = //i
+        // console.log(regexp.test(str))
+
+        // alert('We will,we will'.replace(/we/ig,"I"))
+    </script>
+</body>
+</html>
